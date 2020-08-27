@@ -24,30 +24,35 @@ module.exports.bootstrap = async function() {
   // Whether or not to continue doing the stuff in this file (i.e. wiping and regenerating data)
   // depends on some factors:
   // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-  // If the hard-coded data version has been incremented, or we're being forced
+// If the hard-coded data version has been incremented, or we're being forced
   // (i.e. `--drop` or `--environment=test` was set), then run the meat of this
   // bootstrap script to wipe all existing data and rebuild hard-coded data.
   if (sails.config.models.migrate !== 'drop' && sails.config.environment !== 'test') {
-    // If this is _actually_ a production environment (real or simulated), or we have
-    // `migrate: safe` enabled, then prevent accidentally removing all data!
-    if (process.env.NODE_ENV==='production' || sails.config.models.migrate === 'safe') {
-      sails.log('Since we are running with migrate: \'safe\' and/or NODE_ENV=production (in the "'+sails.config.environment+'" Sails environment, to be precise), skipping the rest of the bootstrap to avoid data loss...');
-      return;
-    }//•
+  
+      // If the hard-coded data version has been incremented, or we're being forced
+      // (i.e. `--drop` or `--environment=test` was set), then run the meat of this
+      // bootstrap script to wipe all existing data and rebuild hard-coded data.
+      if (sails.config.models.migrate !== 'drop' && sails.config.environment !== 'test') {
+        // If this is _actually_ a production environment (real or simulated), or we have
+        // `migrate: safe` enabled, then prevent accidentally removing all data!
+        if (process.env.NODE_ENV==='production' || sails.config.models.migrate === 'safe') {
+          sails.log('Since we are running with migrate: \'safe\' and/or NODE_ENV=production (in the "'+sails.config.environment+'" Sails environment, to be precise), skipping the rest of the bootstrap to avoid data loss...');
+          return;
+        }//•
 
-    // Compare bootstrap version from code base to the version that was last run
-    var lastRunBootstrapInfo = await sails.helpers.fs.readJson(bootstrapLastRunInfoPath)
-    .tolerate('doesNotExist');// (it's ok if the file doesn't exist yet-- just keep going.)
+        // Compare bootstrap version from code base to the version that was last run
+        var lastRunBootstrapInfo = await sails.helpers.fs.readJson(bootstrapLastRunInfoPath)
+        .tolerate('doesNotExist');// (it's ok if the file doesn't exist yet-- just keep going.)
 
-    if (lastRunBootstrapInfo && lastRunBootstrapInfo.lastRunVersion === HARD_CODED_DATA_VERSION) {
-      sails.log('Skipping v'+HARD_CODED_DATA_VERSION+' bootstrap script...  (because it\'s already been run)');
-      sails.log('(last run on this computer: @ '+(new Date(lastRunBootstrapInfo.lastRunAt))+')');
-      return;
-    }//•
+        if (lastRunBootstrapInfo && lastRunBootstrapInfo.lastRunVersion === HARD_CODED_DATA_VERSION) {
+          sails.log('Skipping v'+HARD_CODED_DATA_VERSION+' bootstrap script...  (because it\'s already been run)');
+          sails.log('(last run on this computer: @ '+(new Date(lastRunBootstrapInfo.lastRunAt))+')');
+          return;
+        }//•
 
-    sails.log('Running v'+HARD_CODED_DATA_VERSION+' bootstrap script...  ('+(lastRunBootstrapInfo ? 'before this, the last time the bootstrap ran on this computer was for v'+lastRunBootstrapInfo.lastRunVersion+' @ '+(new Date(lastRunBootstrapInfo.lastRunAt)) : 'looks like this is the first time the bootstrap has run on this computer')+')');
-  }
+        sails.log('Running v'+HARD_CODED_DATA_VERSION+' bootstrap script...  ('+(lastRunBootstrapInfo ? 'before this, the last time the bootstrap ran on this computer was for v'+lastRunBootstrapInfo.lastRunVersion+' @ '+(new Date(lastRunBootstrapInfo.lastRunAt)) : 'looks like this is the first time the bootstrap has run on this computer')+')');
+      }
+    }
   else {
     sails.log('Running bootstrap script because it was forced...  (either `--drop` or `--environment=test` was used)');
   }
@@ -62,6 +67,11 @@ module.exports.bootstrap = async function() {
   await User.createEach([
     { emailAddress: 'admin@example.com', fullName: 'Ryan Dahl', isSuperAdmin: true, password: await sails.helpers.passwords.hashPassword('abc123') },
   ]);
+
+   //Create temporaly information for test
+   console.log("--- Seed database ---")
+   await sails.helpers.seedGatwaySupport()
+   console.log("--- End Seed Database ---")
 
   // Save new bootstrap version
   await sails.helpers.fs.writeJson.with({

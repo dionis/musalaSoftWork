@@ -34,6 +34,17 @@ module.exports.routes = {
   'GET /account/profile':    { action: 'account/view-edit-profile' },
 
 
+  'GET /gateway/count-all-gateway':    { action: 'gateway/count-all-gateway'},
+  // 'GET /review/count-all':            { action: 'review/count-all'},
+  // 'GET /review/count-by-type':        { action: 'review/count-by-type'},
+  // 'GET /review/find-advanced':        { action: 'review/find-advanced'},
+  // 'GET /review/find-all-citizen':     { action: 'review/find-all-citizen'},
+  // 'GET /review/find-all-last':        { action: 'review/find-all-last'},
+  // 'GET /review/find-all':             { action: 'review/find-all'},
+  // 'GET /review/find-by-opinion-text': { action: 'review/find-by-opinion-text'},
+  // 'GET /review/opinion-since-7-days': { action: 'review/opinion-since-7-days'},
+
+
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗
   //  ║║║║╚═╗║    ╠╦╝║╣  ║║║╠╦╝║╣ ║   ║ ╚═╗  ┌┼─   ║║║ ║║║║║║║║  ║ ║╠═╣ ║║╚═╗
   //  ╩ ╩╩╚═╝╚═╝  ╩╚═╚═╝═╩╝╩╩╚═╚═╝╚═╝ ╩ ╚═╝  └┘   ═╩╝╚═╝╚╩╝╝╚╝╩═╝╚═╝╩ ╩═╩╝╚═╝

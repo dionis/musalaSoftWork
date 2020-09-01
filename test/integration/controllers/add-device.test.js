@@ -29,9 +29,20 @@ describe('DeviceController.add-device', function() {
                     gatewayname:gateway.gatewayName
                   }
                 
+                  //.put('/api/v1.0/tasks/5')
+                  //.send({title:'Code Refactor API',user:'ivanleoncz'})
+                  
+                  
+                  // .get('/device/add-device')
+                  // .query( { 
+                  //   device:  newDevice,
+                  //   gatewayname:gateway.gatewayName
+                  // })
+
+
                   supertest(sails.hooks.http.app)
-                  .get('/device/add-device')
-                  .query( { 
+                  .put('/device/add-device')
+                  .send( { 
                     device:  newDevice,
                     gatewayname:gateway.gatewayName
                   })
@@ -58,8 +69,8 @@ describe('DeviceController.add-device', function() {
                  
        }     
        supertest(sails.hooks.http.app)
-       .get('/device/add-device')
-       .query(req)
+       .put('/device/add-device')
+       .send(req)
        .expect(400, function (err, res) {                    
            done() 
         });
@@ -92,8 +103,8 @@ describe('DeviceController.add-device', function() {
                   ERROR_MESSAGE = gateway.gatewayName + " has enough devices."
 
                   supertest(sails.hooks.http.app)
-                  .get('/device/add-device')
-                  .query(req)
+                  .put('/device/add-device')
+                  .send(req)
                   .expect(200, function (err, res) {                  
                        if (err) return done(err);           
                        assert.equal("ERROR",res.body.mssg)  

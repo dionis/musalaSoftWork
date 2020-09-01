@@ -35,15 +35,15 @@ module.exports.routes = {
 
 
   'GET /gateway/count-all-gateway':    { action: 'gateway/count-all-gateway'},
-  'GET /gateway/add-gateway':          { action: 'gateway/create'},
-  'GET /gateway/remove-gateway':    { action: 'gateway/delete'},
+  'PUT /gateway/add-gateway':          { action: 'gateway/create'},
+  'DELETE /gateway/remove-gateway':    { action: 'gateway/delete'},
   'GET /gateway/find-gateway':    { action: 'gateway/find'},
   'GET /gateway/find-all-gateway':    { action: 'gateway/showall'},
 
-  'GET /device/add-device':          { action: 'device/create'},
+  'PUT /device/add-device':          { action: 'device/create'},
   'GET /device/count-all-device':    { action: 'device/count-all-device'},
-  'GET /device/remove-device':    { action: 'device/delete'},
-  'GET /device/update-device':    { action: 'device/update'},
+  'DELETE /device/remove-device':    { action: 'device/delete'},
+  'POST /device/update-device':    { action: 'device/update'},
   // 'GET /review/count-all':            { action: 'review/count-all'},
   // 'GET /review/count-by-type':        { action: 'review/count-by-type'},
   // 'GET /review/find-advanced':        { action: 'review/find-advanced'},

@@ -14,6 +14,15 @@ export class Contact
     address: string;
     birthday: string;
     notes: string;
+    serial?:string;
+    gatewayName?:string;
+    iPv4Address?:string;
+    uid?:string;
+    vendor?:string;
+    status?:string;
+    gatewayname?:string;
+    devicesize:string;    
+
 
     /**
      * Constructor
@@ -35,6 +44,14 @@ export class Contact
             this.address = contact.address || '';
             this.birthday = contact.birthday || '';
             this.notes = contact.notes || '';
+            this.serial = contact.serial || '';
+            this.gatewayName = contact.gatewayName;
+            this.iPv4Address = contact.iPv4Address || '';
+            this.uid = contact.uid || '';
+            this.vendor = contact.vendor || '';
+            this.status = contact.status||'';
+            this.gatewayname = contact.gatewayname || '';
+            this.devicesize = String((typeof(contact.devices)!=='undefined')? contact.devices.length:'') || '';
         }
     }
 }

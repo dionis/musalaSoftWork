@@ -25,8 +25,8 @@ describe('DeviceController.add-device', function() {
                  }
                
                  supertest(sails.hooks.http.app)
-                 .get('/device/remove-device')
-                 .query(req)
+                 .del('/device/remove-device')
+                 .send(req)
                  .expect(200,  function (err, res) {                  
                       if (err) return done(err);           
                       assert.equal("OK",res.body.mssg) 

@@ -9,3 +9,7 @@ https://scotch.io/tutorials/how-to-deploy-a-node-js-app-to-heroku
 https://www.youtube.com/watch?v=72DYDMP09MM
 
 https://www.youtube.com/watch?v=maNWl202vy4
+
+https://www.npmjs.com/package/ip-validator
+
+https://code-maze.com/net-core-web-development-part9/

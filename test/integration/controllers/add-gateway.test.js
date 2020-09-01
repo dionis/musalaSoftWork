@@ -18,8 +18,8 @@ describe('GatewayController.add-gateway', function() {
             }
          
             supertest(sails.hooks.http.app)
-            .get('/gateway/add-gateway')
-            .query(req)
+            .put('/gateway/add-gateway')
+            .send(req)
             .expect(200,  function (err, res) {                  
                   if (err) return done(err);           
                   assert.equal("OK",res.body.mssg) 
@@ -44,8 +44,8 @@ describe('GatewayController.add-gateway', function() {
                  
        }     
        supertest(sails.hooks.http.app)
-       .get('/gateway/add-gateway')
-       .query(req)
+       .put('/gateway/add-gateway')
+       .send(req)
        .expect(400, function (err, res) {                    
            done() 
         });
@@ -57,8 +57,8 @@ describe('GatewayController.add-gateway', function() {
         gateway:{}
        }     
        supertest(sails.hooks.http.app)
-       .get('/gateway/add-gateway')
-       .query(req)
+       .put('/gateway/add-gateway')
+       .send(req)
        .expect(400, function (err, res) {                    
            done() 
         });

@@ -21,61 +21,73 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef>Name</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef>Serial number</mat-header-cell>
         <mat-cell *matCellDef="let contact">
-            <p class="text-truncate font-weight-600">{{contact.name}} {{contact.lastName}}</p>
+            <p class="text-truncate font-weight-600">{{contact.serial}} </p>
         </mat-cell>
     </ng-container>
 
     <!-- Email Column -->
     <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm>Email</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm>Human-readable</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-sm>
             <p class="email text-truncate">
-                {{contact.email}}
+                {{contact.gatewayName}}
             </p>
         </mat-cell>
     </ng-container>
 
+         <!-- Device size Column -->
+        <ng-container matColumnDef="devicesize">
+            <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-lg>Peripheral devices</mat-header-cell>
+            <mat-cell *matCellDef="let contact" fxHide fxShow.gt-lg>
+                <p class="job-title text-truncate">
+                    {{contact.devicesize}}
+                </p>
+            </mat-cell>
+        </ng-container>
+
     <!-- Phone Column -->
     <ng-container matColumnDef="phone">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>Phone</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md>IPv4 address</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-md>
             <p class="phone text-truncate">
-                {{contact.phone}}
+                {{contact.iPv4Address}}
             </p>
         </mat-cell>
     </ng-container>
 
     <!-- Job Title Column -->
-    <ng-container matColumnDef="jobTitle">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-lg>Job title</mat-header-cell>
+    <!-- <ng-container matColumnDef="jobTitle">
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-lg>Peripheral devices</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-lg>
             <p class="job-title text-truncate">
-                {{contact.jobTitle}}
+                {{contact.devicesize}}
             </p>
         </mat-cell>
-    </ng-container>
+    </ng-container> -->
+
+
 
     <!-- Company Column -->
-    <ng-container matColumnDef="company">
+    <!-- <ng-container matColumnDef="company">
         <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-lg>Company</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-lg>
             <p class="company text-truncate">
                 {{contact.company}}
             </p>
         </mat-cell>
-    </ng-container>
+    </ng-container> -->
 
     <!-- Buttons Column -->
     <ng-container matColumnDef="buttons">
         <mat-header-cell *matHeaderCellDef></mat-header-cell>
         <mat-cell *matCellDef="let contact">
             <div fxFlex="row" fxLayoutAlign="end center">
-                <button mat-icon-button (click)="$event.stopPropagation();toggleStar(contact.id)" aria-label="Toggle star">
+                <!-- <button mat-icon-button (click)="$event.stopPropagation();toggleStar(contact.id)" aria-label="Toggle star">
                     <mat-icon class="amber-fg" *ngIf="user.starred.includes(contact.id)">star</mat-icon>
                     <mat-icon class="secondary-text" *ngIf="!user.starred.includes(contact.id)">star_border</mat-icon>
-                </button>
+                </button> -->
 
                 <button mat-icon-button [matMenuTriggerFor]="moreMenu" aria-label="More"
                         (click)="$event.stopPropagation();">

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient , HttpHeaders} from '@angular/common/http';
 import { ActivatedRouteSnapshot, Resolve, RouterStateSnapshot } from '@angular/router';
 import { BehaviorSubject, Observable, Subject } from 'rxjs';
 
@@ -7,6 +7,7 @@ import { FuseUtils } from '../../../@fuse/utils';
 
 import { Contact } from '../../../app/main/contacts/contact.model';
 
+import { EnvironmentUrlService } from '../../../app/shared/services/environment-url.service';
 @Injectable()
 export class ContactsService implements Resolve<any>
 {
@@ -29,7 +30,8 @@ export class ContactsService implements Resolve<any>
      * @param {HttpClient} _httpClient
      */
     constructor(
-        private _httpClient: HttpClient
+        private _httpClient: HttpClient,
+        private _envUrl: EnvironmentUrlService
     )
     {
         // Set the defaults
@@ -87,10 +89,16 @@ export class ContactsService implements Resolve<any>
     getContacts(): Promise<any>
     {
         return new Promise((resolve, reject) => {
-                this._httpClient.get('api/contacts-contacts')
+ 
+                // this._httpClient.get('api/contacts-contacts')
+                console.log("Route to Show ==> " + this.createCompleteRoute('/gateway/find-all-gateway', this._envUrl.urlAddress))
+                this._httpClient.get(this.createCompleteRoute('gateway/find-all-gateway', this._envUrl.urlAddress))
                     .subscribe((response: any) => {
 
-                        this.contacts = response;
+                        this.contacts = response.result;
+                        let message = response.mssg;
+                        
+                       
 
                         if ( this.filterBy === 'starred' )
                         {
@@ -115,6 +123,7 @@ export class ContactsService implements Resolve<any>
                             return new Contact(contact);
                         });
 
+                        console.log("RESPONSE " + JSON.stringify(  this.contacts))
                         this.onContactsChanged.next(this.contacts);
                         resolve(this.contacts);
                     }, reject);
@@ -284,5 +293,16 @@ export class ContactsService implements Resolve<any>
         this.onContactsChanged.next(this.contacts);
         this.deselectContacts();
     }
+
+
+    private createCompleteRoute = (route: string, envAddress: string) => {
+        return `${envAddress}/${route}`;
+      }
+     
+      private generateHeaders = () => {
+        return {
+          headers: new HttpHeaders({'Content-Type': 'application/json'})
+        }
+      }
 
 }

@@ -2,7 +2,7 @@ var supertest = require('supertest');
 var assert = require('assert');
 var faker = require('faker');
 
-describe('DeviceController.add-device', function() {
+describe('GatewayController.add-gateway', function() {
   describe('#', function() {
     it('Should redirect to /gateway/remove-gateway',  function (done) {
     
@@ -24,8 +24,8 @@ describe('DeviceController.add-device', function() {
         
       
         supertest(sails.hooks.http.app)
-        .get('/gateway/remove-gateway')
-        .query(req)
+        .del('/gateway/remove-gateway')
+        .send(req)
         .expect(200, function (err, res) {                  
             if (err) return done(err); 
             console.log("==> " + res.body.mssgtxt)          

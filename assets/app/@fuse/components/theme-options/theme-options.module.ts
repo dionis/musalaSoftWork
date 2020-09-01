@@ -12,11 +12,11 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatSelectModule } from '@angular/material/select';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
-import { FuseDirectivesModule } from '@fuse/directives/directives';
-import { FuseMaterialColorPickerModule } from '@fuse/components/material-color-picker/material-color-picker.module';
-import { FuseSidebarModule } from '@fuse/components/sidebar/sidebar.module';
+import { FuseDirectivesModule } from '../../../@fuse/directives/directives';
+import { FuseMaterialColorPickerModule } from '../../../@fuse/components/material-color-picker/material-color-picker.module';
+import { FuseSidebarModule } from '../../../@fuse/components/sidebar/sidebar.module';
 
-import { FuseThemeOptionsComponent } from '@fuse/components/theme-options/theme-options.component';
+import { FuseThemeOptionsComponent } from '../../../@fuse/components/theme-options/theme-options.component';
 
 @NgModule({
     declarations: [

@@ -9,15 +9,15 @@ import { MatIconModule } from '@angular/material/icon';
 import { TranslateModule } from '@ngx-translate/core';
 import 'hammerjs';
 
-import { FuseModule } from '@fuse/fuse.module';
-import { FuseSharedModule } from '@fuse/shared.module';
-import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from '@fuse/components';
+import { FuseModule } from '../@fuse/fuse.module';
+import { FuseSharedModule } from '../@fuse/shared.module';
+import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from '../@fuse/components';
 
-import { fuseConfig } from 'app/fuse-config';
+import { fuseConfig } from '../app/fuse-config';
 
-import { AppComponent } from 'app/app.component';
-import { LayoutModule } from 'app/layout/layout.module';
-import { SampleModule } from 'app/main/sample/sample.module';
+import { AppComponent } from '../app/app.component';
+import { LayoutModule } from '../app/layout/layout.module';
+import { SampleModule } from '../app/main/sample/sample.module';
 
 const appRoutes: Routes = [
     {

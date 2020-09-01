@@ -1,10 +1,10 @@
-@import "src/@fuse/components/countdown/countdown.theme";
-@import "src/@fuse/components/material-color-picker/material-color-picker.theme";
-@import "src/@fuse/components/search-bar/search-bar.theme";
-@import "src/@fuse/components/shortcuts/shortcuts.theme";
-@import "src/@fuse/components/sidebar/sidebar.theme";
-@import "src/@fuse/components/theme-options/theme-options.theme";
-@import "src/@fuse/components/widget/widget.theme";
+@import "assets/app/@fuse/components/countdown/countdown.theme";
+@import "assets/app/@fuse/components/material-color-picker/material-color-picker.theme";
+@import "assets/app/@fuse/components/search-bar/search-bar.theme";
+@import "assets/app/@fuse/components/shortcuts/shortcuts.theme";
+@import "assets/app/@fuse/components/sidebar/sidebar.theme";
+@import "assets/app/@fuse/components/theme-options/theme-options.theme";
+@import "assets/app/@fuse/components/widget/widget.theme";
 
 @mixin fuse-core-theme($theme) {
 

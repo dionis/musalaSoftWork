@@ -4,10 +4,10 @@ import { takeUntil } from 'rxjs/operators';
 import { TranslateService } from '@ngx-translate/core';
 import * as _ from 'lodash';
 
-import { FuseConfigService } from '@fuse/services/config.service';
-import { FuseSidebarService } from '@fuse/components/sidebar/sidebar.service';
+import { FuseConfigService } from '../../../../@fuse/services/config.service';
+import { FuseSidebarService } from '../../../../@fuse/components/sidebar/sidebar.service';
 
-import { navigation } from 'app/navigation/navigation';
+import { navigation } from '../../../../app/navigation/navigation';
 
 @Component({
     selector     : 'toolbar',

@@ -7,8 +7,8 @@ import { Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 
 import { FuseSidebarService } from './sidebar.service';
-import { FuseMatchMediaService } from '@fuse/services/match-media.service';
-import { FuseConfigService } from '@fuse/services/config.service';
+import { FuseMatchMediaService } from '../../../@fuse/services/match-media.service';
+import { FuseConfigService } from '../../../@fuse/services/config.service';
 
 @Component({
     selector     : 'fuse-sidebar',

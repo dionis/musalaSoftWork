@@ -20,6 +20,15 @@ export const navigation: FuseNavigation[] = [
                     bg       : '#F44336',
                     fg       : '#FFFFFF'
                 }
+            },
+            {
+                id       : 'contact',
+                title    : 'Caontac',
+                translate: 'NAV.CONTACT.TITLE',
+                type     : 'item',
+                icon     : 'email',
+                url      : '/contact',
+               
             }
         ]
     }

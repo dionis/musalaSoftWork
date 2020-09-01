@@ -15,15 +15,25 @@ import { FuseProgressBarModule, FuseSidebarModule, FuseThemeOptionsModule } from
 
 import { fuseConfig } from '../app/fuse-config';
 
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { FakeDbService } from '../app/fake-db/fake-db.service';
+
+
 import { AppComponent } from '../app/app.component';
 import { LayoutModule } from '../app/layout/layout.module';
 import { SampleModule } from '../app/main/sample/sample.module';
+import { ContactsModule } from '../app/main/contacts/contacts.module';
+
 
 const appRoutes: Routes = [
     {
         path      : '**',
         redirectTo: 'sample'
-    }
+    },
+    {
+        path        : 'contacts',
+        loadChildren: () => import('../app/main/contacts/contacts.module').then(m => m.ContactsModule)
+    },
 ];
 
 @NgModule({
@@ -37,6 +47,10 @@ const appRoutes: Routes = [
         RouterModule.forRoot(appRoutes),
 
         TranslateModule.forRoot(),
+        InMemoryWebApiModule.forRoot(FakeDbService, {
+            delay             : 0,
+            passThruUnknownUrl: true
+        }),
 
         // Material moment date module
         MatMomentDateModule,
@@ -54,7 +68,8 @@ const appRoutes: Routes = [
 
         // App modules
         LayoutModule,
-        SampleModule
+        SampleModule,
+        ContactsModule
     ],
     bootstrap   : [
         AppComponent

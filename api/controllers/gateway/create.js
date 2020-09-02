@@ -39,9 +39,15 @@ module.exports = {
         return this.res.json({mssg:'ERROR', mssgtxt:'Exist a Gateway with a same name'});
       }
       else {
+
+        if ( typeof(newGateway.iPv4Address) === 'undefined' || await sails.helpers.ipvalidator.with({ 'ipToVerify': newGateway.iPv4Address, 'ipType':true}) === false){
         
-        await Gateway.create(newGateway)
-        return this.res.json({mssg:'OK', mssgtxt: 'A Gateway with name ' + newGateway.gatewayName + ' was created'});
+          return this.res.json({mssg:'ERROR', mssgtxt:'The ip is wrong'});
+        }
+        else {
+          await Gateway.create(newGateway)
+          return this.res.json({mssg:'OK', mssgtxt: 'A Gateway with name ' + newGateway.gatewayName + ' was created'});
+        }
       }
       
     }      

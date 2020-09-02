@@ -13,3 +13,5 @@ https://www.youtube.com/watch?v=maNWl202vy4
 https://www.npmjs.com/package/ip-validator
 
 https://code-maze.com/net-core-web-development-part9/
+
+https://devcenter.heroku.com/articles/deploying-nodejs

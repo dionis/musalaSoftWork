@@ -44,12 +44,13 @@ export class Contact
             this.address = contact.address || '';
             this.birthday = contact.birthday || '';
             this.notes = contact.notes || '';
-            this.serial = contact.serial || '';           
+            this.serial = contact.serial || '';
             this.iPv4Address = contact.iPv4Address || '';
             this.uid = contact.uid || '';
             this.vendor = contact.vendor || '';
             this.status = contact.status||'';
             this.gatewayname = contact.gatewayname || '';
+            this.gatewayName = (typeof(contact.gateway)!=='undefined')? contact.gateway.gatewayName:'';
             this.devicesize = String((typeof(contact.devices)!=='undefined')? contact.devices.length:'') || '';
         }
     }

@@ -2,16 +2,16 @@ import { Component, Inject, ViewEncapsulation } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
-import { Contact } from '../../../../app/main/contacts/contact.model';
+import { Contact } from '../../../../app/main/devices/devices.model';
 
 @Component({
-    selector     : 'contacts-contact-form-dialog',
-    templateUrl  : './contact-form.component.html',
-    styleUrls    : ['./contact-form.component.scss'],
+    selector     : 'devices-device-form-dialog',
+    templateUrl  : './device-form.component.html',
+    styleUrls    : ['./device-form.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
 
-export class ContactsContactFormDialogComponent
+export class DevicesDeviceFormDialogComponent
 {
     action: string;
     contact: Contact;
@@ -21,12 +21,12 @@ export class ContactsContactFormDialogComponent
     /**
      * Constructor
      *
-     * @param {MatDialogRef<ContactsContactFormDialogComponent>} matDialogRef
+     * @param {MatDialogRef<DevicesDeviceFormDialogComponent>} matDialogRef
      * @param _data
      * @param {FormBuilder} _formBuilder
      */
     constructor(
-        public matDialogRef: MatDialogRef<ContactsContactFormDialogComponent>,
+        public matDialogRef: MatDialogRef<DevicesDeviceFormDialogComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
         private _formBuilder: FormBuilder
     )
@@ -36,12 +36,12 @@ export class ContactsContactFormDialogComponent
 
         if ( this.action === 'edit' )
         {
-            this.dialogTitle = 'Edit Gateway';
+            this.dialogTitle = 'Edit Device';
             this.contact = _data.contact;
         }
         else
         {
-            this.dialogTitle = 'New Gateway';
+            this.dialogTitle = 'New Device';
             this.contact = new Contact({});
         }
 

@@ -8,17 +8,17 @@ import { takeUntil } from 'rxjs/operators';
 import { fuseAnimations } from '../../../../@fuse/animations';
 import { FuseConfirmDialogComponent } from '../../../../@fuse/components/confirm-dialog/confirm-dialog.component';
 
-import { ContactsService } from '../../../../app/main/contacts/contacts.service';
-import { ContactsContactFormDialogComponent } from '../../../../app/main/contacts/contact-form/contact-form.component';
+import { DevicesService } from '../../../../app/main/devices/devices.service';
+import { DevicesDeviceFormDialogComponent } from '../../../../app/main/devices/device-form/device-form.component';
 
 @Component({
-    selector     : 'contacts-contact-list',
-    templateUrl  : './contact-list.component.html',
-    styleUrls    : ['./contact-list.component.scss'],
+    selector     : 'devices-device-list',
+    templateUrl  : './device-list.component.html',
+    styleUrls    : ['./device-list.component.scss'],
     encapsulation: ViewEncapsulation.None,
     animations   : fuseAnimations
 })
-export class ContactsContactListComponent implements OnInit, OnDestroy
+export class DevicesDeviceListComponent implements OnInit, OnDestroy
 {
     @ViewChild('dialogContent')
     dialogContent: TemplateRef<any>;
@@ -38,11 +38,11 @@ export class ContactsContactListComponent implements OnInit, OnDestroy
     /**
      * Constructor
      *
-     * @param {ContactsService} _contactsService
+     * @param {DevicesService} _contactsService
      * @param {MatDialog} _matDialog
      */
     constructor(
-        private _contactsService: ContactsService,
+        private _contactsService: DevicesService,
         public _matDialog: MatDialog
     )
     {
@@ -120,7 +120,7 @@ export class ContactsContactListComponent implements OnInit, OnDestroy
      */
     editContact(contact): void
     {
-        this.dialogRef = this._matDialog.open(ContactsContactFormDialogComponent, {
+        this.dialogRef = this._matDialog.open(DevicesDeviceFormDialogComponent, {
             panelClass: 'contact-form-dialog',
             data      : {
                 contact: contact,
@@ -217,7 +217,7 @@ export class FilesDataSource extends DataSource<any>
      * @param {ContactsService} _contactsService
      */
     constructor(
-        private _contactsService: ContactsService
+        private _contactsService: DevicesService
     )
     {
         super();

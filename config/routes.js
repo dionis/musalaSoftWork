@@ -13,45 +13,40 @@ module.exports.routes = {
   //  ╦ ╦╔═╗╔╗ ╔═╗╔═╗╔═╗╔═╗╔═╗
   //  ║║║║╣ ╠╩╗╠═╝╠═╣║ ╦║╣ ╚═╗
   //  ╚╩╝╚═╝╚═╝╩  ╩ ╩╚═╝╚═╝╚═╝
-  'GET /':                   { action: 'view-homepage-or-redirect' },
-  'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
+  // 'GET /':                   { action: 'view-homepage-or-redirect' },
+  // 'GET /welcome/:unused?':   { action: 'dashboard/view-welcome' },
 
-  'GET /faq':                { action:   'view-faq' },
-  'GET /legal/terms':        { action:   'legal/view-terms' },
-  'GET /legal/privacy':      { action:   'legal/view-privacy' },
-  'GET /contact':            { action:   'view-contact' },
+  // 'GET /faq':                { action:   'view-faq' },
+  // 'GET /legal/terms':        { action:   'legal/view-terms' },
+  // 'GET /legal/privacy':      { action:   'legal/view-privacy' },
+  // 'GET /contact':            { action:   'view-contact' },
 
-  'GET /signup':             { action: 'entrance/view-signup' },
-  'GET /email/confirm':      { action: 'entrance/confirm-email' },
-  'GET /email/confirmed':    { action: 'entrance/view-confirmed-email' },
+  // 'GET /signup':             { action: 'entrance/view-signup' },
+  // 'GET /email/confirm':      { action: 'entrance/confirm-email' },
+  // 'GET /email/confirmed':    { action: 'entrance/view-confirmed-email' },
 
-  'GET /login':              { action: 'entrance/view-login' },
-  'GET /password/forgot':    { action: 'entrance/view-forgot-password' },
-  'GET /password/new':       { action: 'entrance/view-new-password' },
+  // 'GET /login':              { action: 'entrance/view-login' },
+  // 'GET /password/forgot':    { action: 'entrance/view-forgot-password' },
+  // 'GET /password/new':       { action: 'entrance/view-new-password' },
 
-  'GET /account':            { action: 'account/view-account-overview' },
-  'GET /account/password':   { action: 'account/view-edit-password' },
-  'GET /account/profile':    { action: 'account/view-edit-profile' },
+  // 'GET /account':            { action: 'account/view-account-overview' },
+  // 'GET /account/password':   { action: 'account/view-edit-password' },
+  // 'GET /account/profile':    { action: 'account/view-edit-profile' },
 
 
   'GET /gateway/count-all-gateway':    { action: 'gateway/count-all-gateway'},
   'PUT /gateway/add-gateway':          { action: 'gateway/create'},
   'DELETE /gateway/remove-gateway':    { action: 'gateway/delete'},
-  'GET /gateway/find-gateway':    { action: 'gateway/find'},
+  'GET /gateway/find-gateway':         { action: 'gateway/find'},
   'GET /gateway/find-all-gateway':    { action: 'gateway/showall'},
-
+ 
+  'GET /gateway/ipvalidator':        { action: 'gateway/ipvalidator'},
   'PUT /device/add-device':          { action: 'device/create'},
   'GET /device/count-all-device':    { action: 'device/count-all-device'},
   'DELETE /device/remove-device':    { action: 'device/delete'},
-  'POST /device/update-device':    { action: 'device/update'},
-  // 'GET /review/count-all':            { action: 'review/count-all'},
-  // 'GET /review/count-by-type':        { action: 'review/count-by-type'},
-  // 'GET /review/find-advanced':        { action: 'review/find-advanced'},
-  // 'GET /review/find-all-citizen':     { action: 'review/find-all-citizen'},
-  // 'GET /review/find-all-last':        { action: 'review/find-all-last'},
-  // 'GET /review/find-all':             { action: 'review/find-all'},
-  // 'GET /review/find-by-opinion-text': { action: 'review/find-by-opinion-text'},
-  // 'GET /review/opinion-since-7-days': { action: 'review/opinion-since-7-days'},
+  'POST /device/update-device':      { action: 'device/update'},
+  'GET /device/find-all-device':    { action: 'device/showall'},
+
 
 
   //  ╔╦╗╦╔═╗╔═╗  ╦═╗╔═╗╔╦╗╦╦═╗╔═╗╔═╗╔╦╗╔═╗   ┬   ╔╦╗╔═╗╦ ╦╔╗╔╦  ╔═╗╔═╗╔╦╗╔═╗

@@ -14,30 +14,30 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FuseSharedModule } from '../../../@fuse/shared.module';
 import { FuseConfirmDialogModule, FuseSidebarModule } from '../../../@fuse/components';
 
-import { ContactsComponent } from '../../../app/main/contacts/contacts.component';
-import { ContactsService } from '../../../app/main/contacts/contacts.service';
-import { ContactsContactListComponent } from '../../../app/main/contacts/contact-list/contact-list.component';
-import { ContactsSelectedBarComponent } from '../../../app/main/contacts/selected-bar/selected-bar.component';
-import { ContactsMainSidebarComponent } from '../../../app/main/contacts/sidebars/main/main.component';
-import { ContactsContactFormDialogComponent } from '../../../app/main/contacts/contact-form/contact-form.component';
+import { DevicesComponent } from '../../../app/main/devices/devices.component';
+import { DevicesService } from '../../../app/main/devices/devices.service';
+import { DevicesDeviceListComponent } from '../../../app/main/devices/device-list/device-list.component';
+import { DevicesSelectedBarComponent } from '../../../app/main/devices/device-bar/selected-bar.component';
+import { DevicesMainSidebarComponent } from '../../../app/main/devices/sidebars/main/main.component';
+import { DevicesDeviceFormDialogComponent } from '../../../app/main/devices/device-form/device-form.component';
 
 const routes: Routes = [
     {
-        path     : 'contact',
-        component: ContactsComponent,
+        path     : 'devices',
+        component: DevicesComponent,
         resolve  : {
-            contacts: ContactsService
+            contacts: DevicesService
         }
     }
 ];
 
 @NgModule({
     declarations   : [
-        ContactsComponent,
-        ContactsContactListComponent,
-        ContactsSelectedBarComponent,
-        ContactsMainSidebarComponent,
-        ContactsContactFormDialogComponent
+        DevicesComponent,
+        DevicesDeviceListComponent,
+        DevicesSelectedBarComponent,
+        DevicesMainSidebarComponent,
+        DevicesDeviceFormDialogComponent
     ],
     imports        : [
         RouterModule.forChild(routes),
@@ -58,12 +58,12 @@ const routes: Routes = [
         FuseSidebarModule
     ],
     providers      : [
-        ContactsService
+        DevicesService
     ],
     entryComponents: [
-        ContactsContactFormDialogComponent
+        DevicesDeviceFormDialogComponent
     ]
 })
-export class ContactsModule
+export class DevicesModule
 {
 }

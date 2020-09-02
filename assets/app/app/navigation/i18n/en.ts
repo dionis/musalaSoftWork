@@ -8,7 +8,11 @@ export const locale = {
                 'BADGE': '25'
             },
             'CONTACT'        : {
-                'TITLE': 'Contact',
+                'TITLE': 'Gateways',
+                'BADGE': '25'
+            },
+            'DEVICE'        : {
+                'TITLE': 'Devices',
                 'BADGE': '25'
             }
         }

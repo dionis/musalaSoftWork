@@ -23,16 +23,20 @@ import { AppComponent } from '../app/app.component';
 import { LayoutModule } from '../app/layout/layout.module';
 import { SampleModule } from '../app/main/sample/sample.module';
 import { ContactsModule } from '../app/main/contacts/contacts.module';
-
+import { DevicesModule } from '../app/main/devices/devices.module';
 
 const appRoutes: Routes = [
+    // {
+    //     path      : '**',
+    //     redirectTo: 'sample'
+    // },
     {
-        path      : '**',
-        redirectTo: 'sample'
+        path        : '**',
+        loadChildren: () => import('../app/main/contacts/contacts.module').then(m => m.ContactsModule)
     },
     {
-        path        : 'contacts',
-        loadChildren: () => import('../app/main/contacts/contacts.module').then(m => m.ContactsModule)
+        path        : 'devices',
+        loadChildren: () => import('../app/main/devices/devices.module').then(m => m.DevicesModule)
     },
 ];
 
@@ -69,7 +73,8 @@ const appRoutes: Routes = [
         // App modules
         LayoutModule,
         SampleModule,
-        ContactsModule
+        ContactsModule,
+        DevicesModule
     ],
     bootstrap   : [
         AppComponent

@@ -21,38 +21,38 @@
 
     <!-- Name Column -->
     <ng-container matColumnDef="name">
-        <mat-header-cell *matHeaderCellDef  style="font-style: unset; font-size: 16px;">Serial number</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef  style="font-style: unset; font-size: 16px;">Uid</mat-header-cell>
         <mat-cell *matCellDef="let contact">
-            <p class="text-truncate font-weight-600">{{contact.serial}} </p>
+            <p class="text-truncate font-weight-600">{{contact.uid}} </p>
         </mat-cell>
     </ng-container>
 
     <!-- Email Column -->
     <ng-container matColumnDef="email">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm  style="font-style: unset; font-size: 16px;">Human-readable</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm  style="font-style: unset; font-size: 16px;">Vendor</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-sm>
             <p class="email text-truncate">
-                {{contact.gatewayName}}
+                {{contact.vendor}}
             </p>
         </mat-cell>
     </ng-container>
 
      <!-- Phone Column -->
     <ng-container matColumnDef="phone">
-        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md  style="font-style: unset; font-size: 16px;">IPv4 address</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-md  style="font-style: unset; font-size: 16px;">Status</mat-header-cell>
         <mat-cell *matCellDef="let contact" fxHide fxShow.gt-md>
             <p class="phone text-truncate">
-                {{contact.iPv4Address}}
+                {{contact.status}}
             </p>
         </mat-cell>
     </ng-container>
 
         <!-- Device size Column -->
         <ng-container matColumnDef="devicesize">
-            <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm style="font-style: unset; font-size: 16px;">Peripheral devices</mat-header-cell>
+            <mat-header-cell *matHeaderCellDef fxHide fxShow.gt-sm style="font-style: unset; font-size: 16px;">Gateway name</mat-header-cell>
             <mat-cell *matCellDef="let contact" fxHide fxShow.gt-sm>
                 <p class="phone text-truncate">
-                    {{contact.devicesize}}
+                    {{contact.gatewayName}}
                 </p>
             </mat-cell>
         </ng-container>

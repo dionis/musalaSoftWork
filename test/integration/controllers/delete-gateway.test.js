@@ -18,8 +18,7 @@ describe('GatewayController.add-gateway', function() {
         deviceToRemove = faker.random.arrayElement(gateway.devices)
         //Request paramenters
         req = { 
-          gateway:  gateway,
-          gatewayname:gateway.gatewayName
+          gateway:  gateway       
         }
         
       
